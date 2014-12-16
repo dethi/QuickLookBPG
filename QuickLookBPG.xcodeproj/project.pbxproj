@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DCD44441A40527F000D727F /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD44431A40527F000D727F /* GenerateThumbnailForURL.c */; };
-		5DCD44461A40527F000D727F /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD44451A40527F000D727F /* GeneratePreviewForURL.c */; };
+		5DCD44441A40527F000D727F /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD44431A40527F000D727F /* GenerateThumbnailForURL.m */; };
+		5DCD44461A40527F000D727F /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD44451A40527F000D727F /* GeneratePreviewForURL.m */; };
 		5DCD44481A40527F000D727F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD44471A40527F000D727F /* main.c */; };
+		5DEC50C31A40A85B00E4B5CD /* libbpg.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DEC50C21A40A85B00E4B5CD /* libbpg.h */; };
+		5DEC50C51A40A9C800E4B5CD /* libbpg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEC50C41A40A9C800E4B5CD /* libbpg.a */; };
+		5DEC50C71A40AA5600E4B5CD /* BPGDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC50C61A40AA5600E4B5CD /* BPGDecode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5DCD443E1A40527F000D727F /* QuickLookBPG.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickLookBPG.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCD44421A40527F000D727F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5DCD44431A40527F000D727F /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
-		5DCD44451A40527F000D727F /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
+		5DCD44431A40527F000D727F /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
+		5DCD44451A40527F000D727F /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
 		5DCD44471A40527F000D727F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		5DEC50C21A40A85B00E4B5CD /* libbpg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libbpg.h; path = libs/libbpg.h; sourceTree = "<group>"; };
+		5DEC50C41A40A9C800E4B5CD /* libbpg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbpg.a; path = libs/libbpg.a; sourceTree = "<group>"; };
+		5DEC50C61A40AA5600E4B5CD /* BPGDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPGDecode.m; sourceTree = "<group>"; };
+		5DEC50C81A40AAA800E4B5CD /* BPGDecode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPGDecode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DEC50C51A40A9C800E4B5CD /* libbpg.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,9 +58,12 @@
 		5DCD44401A40527F000D727F /* QuickLookBPG */ = {
 			isa = PBXGroup;
 			children = (
-				5DCD44431A40527F000D727F /* GenerateThumbnailForURL.c */,
-				5DCD44451A40527F000D727F /* GeneratePreviewForURL.c */,
+				5DCD44431A40527F000D727F /* GenerateThumbnailForURL.m */,
+				5DCD44451A40527F000D727F /* GeneratePreviewForURL.m */,
 				5DCD44471A40527F000D727F /* main.c */,
+				5DEC50C61A40AA5600E4B5CD /* BPGDecode.m */,
+				5DEC50C81A40AAA800E4B5CD /* BPGDecode.h */,
+				5DEC50B71A40A4FF00E4B5CD /* libs */,
 				5DCD44411A40527F000D727F /* Supporting Files */,
 			);
 			path = QuickLookBPG;
@@ -66,6 +77,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5DEC50B71A40A4FF00E4B5CD /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				5DEC50C41A40A9C800E4B5CD /* libbpg.a */,
+				5DEC50C21A40A85B00E4B5CD /* libbpg.h */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -73,6 +93,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DEC50C31A40A85B00E4B5CD /* libbpg.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,9 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DCD44441A40527F000D727F /* GenerateThumbnailForURL.c in Sources */,
-				5DCD44461A40527F000D727F /* GeneratePreviewForURL.c in Sources */,
+				5DCD44441A40527F000D727F /* GenerateThumbnailForURL.m in Sources */,
+				5DCD44461A40527F000D727F /* GeneratePreviewForURL.m in Sources */,
 				5DCD44481A40527F000D727F /* main.c in Sources */,
+				5DEC50C71A40AA5600E4B5CD /* BPGDecode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +254,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = QuickLookBPG/Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QuickLookBPG",
+					"$(PROJECT_DIR)/QuickLookBPG/libs",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
@@ -243,6 +270,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = QuickLookBPG/Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QuickLookBPG",
+					"$(PROJECT_DIR)/QuickLookBPG/libs",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
@@ -267,6 +299,7 @@
 				5DCD444D1A40527F000D727F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
