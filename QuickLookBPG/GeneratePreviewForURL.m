@@ -1,6 +1,7 @@
-#include <CoreFoundation/CoreFoundation.h>
-#include <CoreServices/CoreServices.h>
-#include <QuickLook/QuickLook.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import <CoreServices/CoreServices.h>
+#import <QuickLook/QuickLook.h>
+#import "BPGDecode.h"
 
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options);
 void CancelPreviewGeneration(void *thisInterface, QLPreviewRequestRef preview);
@@ -13,7 +14,22 @@ void CancelPreviewGeneration(void *thisInterface, QLPreviewRequestRef preview);
 
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
-    // To complete your generator please implement the function GeneratePreviewForURL in GeneratePreviewForURL.c
+    CGImageRef image = CreateImageForURL(url);
+    if (image == NULL) {
+        return -1;
+    }
+    CGFloat width = CGImageGetWidth(image);
+    CGFloat height = CGImageGetHeight(image);
+    
+    @autoreleasepool {
+        NSDictionary *newOpt = [NSDictionary  dictionaryWithObjectsAndKeys:(NSString *)[(__bridge NSDictionary *)options objectForKey:(NSString *)kQLPreviewPropertyDisplayNameKey], kQLPreviewPropertyDisplayNameKey, [NSNumber numberWithFloat:width], kQLPreviewPropertyWidthKey, [NSNumber numberWithFloat:height], kQLPreviewPropertyHeightKey, nil];
+        CGContextRef ctx = QLPreviewRequestCreateContext(preview, CGSizeMake(width, height), YES, (__bridge CFDictionaryRef)newOpt);
+        CGContextDrawImage(ctx, CGRectMake(0,0,width,height), image);
+        QLPreviewRequestFlushContext(preview, ctx);
+        CGImageRelease(image);
+        CGContextRelease(ctx);
+    }
+    
     return noErr;
 }
 

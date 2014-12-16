@@ -13,7 +13,21 @@
 		5DEC50C31A40A85B00E4B5CD /* libbpg.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DEC50C21A40A85B00E4B5CD /* libbpg.h */; };
 		5DEC50C51A40A9C800E4B5CD /* libbpg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEC50C41A40A9C800E4B5CD /* libbpg.a */; };
 		5DEC50C71A40AA5600E4B5CD /* BPGDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC50C61A40AA5600E4B5CD /* BPGDecode.m */; };
+		5DEC50CB1A40F77800E4B5CD /* QuickLookBPG.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DCD443E1A40527F000D727F /* QuickLookBPG.qlgenerator */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5DEC50CA1A40F74C00E4B5CD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "~/Library/QuickLook";
+			dstSubfolderSpec = 0;
+			files = (
+				5DEC50CB1A40F77800E4B5CD /* QuickLookBPG.qlgenerator in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5DCD443E1A40527F000D727F /* QuickLookBPG.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickLookBPG.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +122,7 @@
 				5DCD443A1A40527F000D727F /* Frameworks */,
 				5DCD443B1A40527F000D727F /* Headers */,
 				5DCD443C1A40527F000D727F /* Resources */,
+				5DEC50CA1A40F74C00E4B5CD /* CopyFiles */,
 			);
 			buildRules = (
 			);

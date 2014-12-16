@@ -15,16 +15,11 @@ CGImageRef CreateImageForURL(CFURLRef url)
     BPGDecoderContext *img;
     img = bpg_decoder_open();
     
-    int buf_len = (int)fileData.length;
-    uint8_t *buf = malloc(buf_len);
-    
     /* Get BPG image data */
-    if (bpg_decoder_decode(img, buf, buf_len) < 0) {
+    if (bpg_decoder_decode(img, fileData.bytes, (int)fileData.length) < 0) {
         NSLog(@"(bpg_decoder_decode) cannot get BPG image data for %@", url);
-        free(buf);
         return NULL;
     }
-    free(buf);
     
     BPGImageInfo img_info;
     bpg_decoder_get_info(img, &img_info);
@@ -42,7 +37,7 @@ CGImageRef CreateImageForURL(CFURLRef url)
     bpg_decoder_close(img);
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
-    CGContextRef bitmapContext = CGBitmapContextCreate(rgba_data, w, h, 8, 4 * w, colorSpace, kCGImageAlphaPremultipliedLast);
+    CGContextRef bitmapContext = CGBitmapContextCreate(rgba_data, w, h, 8, 4 * w, colorSpace, (CGBitmapInfo)kCGImageAlphaPremultipliedLast);
     CGImageRef cgImage = CGBitmapContextCreateImage(bitmapContext);
     
     CGColorSpaceRelease(colorSpace);
