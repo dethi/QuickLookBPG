@@ -1,10 +1,10 @@
 # QuickLookBPG
 
-This is an open-source QuickLook plugin to generate thumbnails and previews for BPG images.
+This is an open-source QuickLook plugin to generate thumbnails and previews for [BPG images](http://bellard.org/bpg/).
 
 ## Installation
 
-- [Download the lastest version]()
+- [Download the lastest version](https://github.com/dethi/QuickLookBPG/releases/latest)
 - Unzip it
 - Copy `QuickLookBPG.qlgenerator` into `/Library/QuickLook`
 
