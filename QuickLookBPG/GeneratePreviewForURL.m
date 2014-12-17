@@ -15,9 +15,9 @@ void CancelPreviewGeneration(void *thisInterface, QLPreviewRequestRef preview);
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
     CGImageRef image = CreateImageForURL(url);
-    if (image == NULL) {
+    if (image == NULL)
         return -1;
-    }
+    
     CGFloat width = CGImageGetWidth(image);
     CGFloat height = CGImageGetHeight(image);
     
